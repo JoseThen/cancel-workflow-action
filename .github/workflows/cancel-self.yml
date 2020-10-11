@@ -18,4 +18,4 @@ jobs:
       - run: echo 'Sleeping...'; sleep 120; echo 'Done.';
       - name: Results
         run: |
-          echo ${{ steps.cancel_step.outputs.RESULTS }}
+          echo ${{ steps.cancel_step.outputs.RESULT }}
