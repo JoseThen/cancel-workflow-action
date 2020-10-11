@@ -77,5 +77,11 @@ async function main() {
 }
 
 main()
-  .then(() => core.info('Cancel Complete.'))
-  .catch(e => core.setFailed(e.message));
+  .then(() => {
+    core.setOutput('RESULT', 'success');
+    core.info('Cancel Complete.')
+  })
+  .catch((e) => {
+    core.setOutput('RESULT', 'failure');
+    core.setFailed(e.message)
+  });

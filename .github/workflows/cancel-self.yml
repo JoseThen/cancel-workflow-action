@@ -11,7 +11,11 @@ jobs:
         uses: actions/checkout@v2
       - name: Test Step
         uses: ./ # Uses an action in the root directory
+        id: cancel_step
         with:
           access_token: ${{ github.token }}
       - uses: actions/setup-node@v1
       - run: echo 'Sleeping...'; sleep 120; echo 'Done.';
+      - name: Results
+        run: |
+          echo ${{ steps.cancel_step.outputs.RESULTS }}
